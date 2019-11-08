@@ -12,9 +12,9 @@ jobs:
         uses: actions/checkout@master
       - name: Build project # This would actually build your project, using zip for an example artifact
         run: |
-          zip -r god.zip god
-      - name: Upload Release Asset
-        id: upload-release-asset 
+          zip -r god.zip god && zip -r half-god.zip half-god
+      - name: Upload First Release Asset
+        id: upload-first-release-asset 
         uses: actions/upload-release-asset@v1.0.1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -22,4 +22,14 @@ jobs:
           upload_url: ${{ github.event.release.upload_url }} # This pulls from the CREATE RELEASE step above, referencing it's ID to get its outputs object, which include a `upload_url`. See this blog post for more info: https://jasonet.co/posts/new-features-of-github-actions/#passing-data-to-future-steps 
           asset_path: ./god.zip
           asset_name: god.zip
+          asset_content_type: application/zip
+      - name: Upload First Release Asset
+        id: upload-second-release-asset 
+        uses: actions/upload-release-asset@v1.0.1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ github.event.release.upload_url }} # This pulls from the CREATE RELEASE step above, referencing it's ID to get its outputs object, which include a `upload_url`. See this blog post for more info: https://jasonet.co/posts/new-features-of-github-actions/#passing-data-to-future-steps 
+          asset_path: ./half-god.zip
+          asset_name: half-god.zip
           asset_content_type: application/zip
