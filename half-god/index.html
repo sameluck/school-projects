@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+</head>
+<body BGCOLOR=#00FF00>
+	<H1 align="center"><I>My first paragraph</I></H1>
+	<H2 align="center"><B>My second paragraph</B></H2>
+	<H3 align="center">My third paragraph</H3>
+	<H4 align="center">My fourth paragraph</H4>
+	<H5 align="center">My fifth paragraph</H5>
+	<H6 align="center">My sixth paragraph</H6>
+	<hr width="50%" size="100" color=#0000ff>
+	<MARQUEE DIRECTION=RIGHT scrollamount=20><a href="https://www.google.com/">help , i am floating</a></MARQUEE>
+	<hr width="50%" size="100" color=#0000ff>
+	<ol>
+		<li>1st
+			<ul>
+				<li>hehe</li>
+				<li>hehe</li>
+				<li>hehe<</li>
+				<li>hehe</li>
+				<li>hehe</li>
+			</ul>
+		</li>
+		<li>2nd
+			<ul>
+				<li>hehe</li>
+				<li>hehe</li>
+				<li>hehe</li>
+				<li>hehe</li>
+				<li>hehe</li>
+				<li>hehe</li>
+			</ul>
+		</li>
+		<li>3rd
+			<ul>
+				<li>hehe</li>
+				<li>hehe</li>
+				<li>hehe</li>
+				<li>hehe</li>
+				<li>hehe</li>
+				<li>hehe</li>
+				<li>hehe</li>
+			</ul>
+		</li>
+	</ol>
+
+
+
+
+
+
+
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/94/three.min.js"></script>
+		<script>
+
+			var camera, scene, renderer;
+			var geometry, material, mesh;
+
+			function init() {
+
+				camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 10 );
+				camera.position.z = 3;
+
+				scene = new THREE.Scene();
+				scene.background = new THREE.Color( 0xffffff );
+
+				geometry = new THREE.ConeGeometry( 1 );
+				material = new THREE.MeshBasicMaterial( { color: 0x000000, wireframe: true } );
+
+				mesh = new THREE.Mesh( geometry, material );
+				scene.add( mesh );
+
+				renderer = new THREE.WebGLRenderer( { antialias: true } );
+				renderer.setSize( window.innerWidth, window.innerHeight );
+				document.body.appendChild( renderer.domElement );				
+				
+			}
+
+			function animate( time ) {
+
+				mesh.rotation.x = time * 0.005;
+				mesh.rotation.y = time * 0.01;
+
+				renderer.render( scene, camera );
+				requestAnimationFrame( animate );
+
+			}
+
+			init();
+			requestAnimationFrame( animate );
+
+		</script>
+</body>
+</html>
