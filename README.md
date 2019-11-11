@@ -1,2 +1,2 @@
 # School projects
-[Click me](mrsasha8.github.io)
+[Click me](https://mrsasha8.github.io)
