@@ -1,5 +1,5 @@
 #row-1 {
-    height: 150px;
+    height: 130px;
     background-color: #66c9d4;
 }
 #title-1 {
@@ -11,4 +11,27 @@
 }
 #title-2 {
     color: white;
+}
+#row-3 {
+    height: 484px;
+}
+#main-text-column {
+    background-color: #ffe5be;
+}
+#main-text {
+    width: 96%;
+}
+#diamond-text-and-photo {
+    text-align: center;
+    height: 80%;
+    width: 80%;
+}
+#diamond-photo {
+    height: 80%;
+    width: 80%;
+}
+#facts {
+    height: 80%;
+    width: 80%;
+    text-align: center;
 }
